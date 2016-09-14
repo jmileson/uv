@@ -21,15 +21,21 @@ def extract_name(cursor, meta):
 
 def main(hostname, user, password):
     conn = jaydebeapi.connect(driver,
-                              conn_str.format(host=hostname, account='ODBC', user=user, password=password),
+                              conn_str.format(host=hostname, account='JSS', user=user, password=password),
                               [os.path.join(lib, 'unijdbc.jar'), os.path.join(lib, 'asjava.zip')])
     cursor = conn.cursor()
 
-    table_meta = conn.jconn.getMetaData().getTables(None, None, '%', None)
-    tables = extract_name(cursor, table_meta)
+    # table_meta = conn.jconn.getMetaData().getTables(None, None, '%', None)
+    # tables = extract_name(cursor, table_meta)
+    #
+    # column_meta = conn.jconn.getMetaData().getColumns(None, None, '%', None)
+    # extract_name(cursor, column_meta)
+    cursor.execute("""SELECT @ID, RT.ID FROM PARTS""")
 
-    column_meta = conn.jconn.getMetaData().getColumns(None, None, '%', None)
-    extract_name(cursor, column_meta)
+    val = cursor.fetchmany(20)
+    # cursor._prep.getMoreResults()
+
+    # mv = cursor.fetchone()
 
 
     print('complete')
