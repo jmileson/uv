@@ -1,6 +1,6 @@
 # UV
 
-##Setup
+## Setup
  
  - configure your JAVA_HOME environment variable to point to the 
  root of a JDK (any old JDK will work)
@@ -8,7 +8,7 @@
  directory to the CLASSPATH variable, but this is not necessary for 
  this package to run
  
-##Related Docs
+## Related Docs
 [JayDeBeApi](https://github.com/baztian/jaydebeapi)
 
 [Using the ICM JDBC Driver for UniData and Universe](http://docs.rocketsoftware.com/nxt/gateway.dll/RKBnew20/unidata/previous%20versions/v7.2/unidata_jdbcdriveruserguide_v72.pdf)
